@@ -78,13 +78,12 @@
           " | xargs grep '[^_]function' "
           "--with-filename"))
 
-(when (require 'auto-complete nil 'noerror)
-  (ac-define-source cake
-    '((init . (lambda () (unless ac-cake-index
-                           (ac-cake-build-index))))
-      (candidates . ac-cake-index)
-      (requires . 3)
-      (symbol . "f"))))
+(ac-define-source cake
+  '((init . (lambda () (unless ac-cake-index
+                         (ac-cake-build-index))))
+    (candidates . ac-cake-index)
+    (requires . 3)
+    (symbol . "f")))
 
 (provide 'ac-cake)
 
